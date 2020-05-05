@@ -25,7 +25,23 @@ def draw(event,x,y,flags,parm):
     if event == cv2.EVENT_LBUTTONUP:
         if drawr == True:
             img = orig.copy()
-            img_crop = orig[yi:y,xi:x]
+            
+            print("xi=",xi,"yi=",yi)
+            print("x=",x,"y=",y)
+            
+            if xi<x and yi<y:
+                img_crop = orig[yi:y,xi:x]
+            if xi>x and yi>y:
+                img_crop = orig[y:yi,x:xi]
+            if xi<x and yi>y:
+                img_crop = orig[y:yi,xi:x]
+            if xi>x and yi<y:
+                img_crop = orig[yi:y,x:xi]
+                
+                
+                
+            print(img_crop.shape)
+            
             img_zoom = cv2.resize(img_crop,fx=2,fy=2,dsize=(0,0))
             cv2.imshow("img_zoom",img_zoom)
             
