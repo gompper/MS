@@ -19,8 +19,9 @@ def draw(event,x,y,flags,parm):
         start_pt = x,y
         drawr = True
     if event == cv2.EVENT_MOUSEMOVE:
-        img = orig.copy()
+
         if drawr == True:
+            img = orig.copy()
             cv2.rectangle(img,start_pt,(x,y),(0,0,0),-1)        
     if event == cv2.EVENT_LBUTTONUP:
         drawr = False
