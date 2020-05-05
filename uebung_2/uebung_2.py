@@ -24,10 +24,10 @@ def draw(event,x,y,flags,parm):
             cv2.rectangle(img,(xi,yi),(x,y),(0,0,0),2)        
     if event == cv2.EVENT_LBUTTONUP:
         if drawr == True:
-            cv2.rectangle(img,(xi,yi),(x,y),(0,0,0),2)
-            img_crop = img[xi:x,yi:y]
+            img_crop = orig[xi:x,yi:y]
             img_zoom = cv2.resize(img_crop,fx=0,fy=0,dsize=(abs(xi-x),abs(yi-y)))
             cv2.imshow("img_zoom",img_zoom)
+            cv2.rectangle(img,(xi,yi),(x,y),(0,0,0),2)
             drawr = False
 
         
